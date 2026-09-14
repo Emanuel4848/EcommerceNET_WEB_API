@@ -14,3 +14,6 @@ public class CategoryProfile: Profile     //<-- Importar de autompaer
     }
 
 }
+
+
+    

@@ -1,10 +1,18 @@
+using ApiEcommerce.Repository;
+using ApiEcommerce.Repository.IRepository;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 var dbConnectionString = builder.Configuration.GetConnectionString("ConexionSql");
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(dbConnectionString));
+//automapper
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddAutoMapper(typeof(Program).Assembly);
+
+
 builder.Services.AddControllers();
+
 builder.Services.AddOpenApi();
 builder.Services.AddSwaggerGen();     
 
