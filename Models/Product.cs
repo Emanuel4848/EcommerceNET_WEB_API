@@ -14,6 +14,10 @@ public class Product
     public string Name {get; set;}= string.Empty;
     public string Description {get; set;}=string.Empty;
     [Range(0, double.MaxValue)]  //no negativos
+
+
+
+    [Column(TypeName = "decimal(18,2)")]  //18 enteros y 2 decimales.
     public decimal Price {get; set;}
     
     public string ImgUrl {get; set;}=string.Empty;
