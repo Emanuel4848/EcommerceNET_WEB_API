@@ -85,7 +85,7 @@ namespace ApiEcommerce.Controllers
             }
 
             //CONVERTIR EndidadDto a EntidadCategory
-            var category = _mapper.Map<Category>(createCategoryDto);
+            var category = _mapper.Map<Category>(createCategoryDto); //<Destino> (Origen)
 
             //guardarlo en la base de datos
             if (!_categoryRepository.CreateCategory(category))   
