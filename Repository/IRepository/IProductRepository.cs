@@ -6,7 +6,7 @@ namespace ApiEcommerce.Repository.IRepository;
 public interface IProductRepository
 {
     ICollection<Product> GetProducts();
-    ICollection<Product> GetProductForCategory(int CategoryId);
+    ICollection<Product> GetProductForCategory(int categoryId);
     ICollection<Product> SearchProduct(string name);
     Product? GetProduct(int id);
     bool BuyProduct(string name, int quantity);
