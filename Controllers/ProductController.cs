@@ -99,7 +99,9 @@ namespace ApiEcommerce.Controllers
             }
 
             //el retorno
-            return CreatedAtRoute("GetProduct", new {productId = product.ProductId}, product);
+            var createProduct = _productRepository.GetProduct(product.ProductId);
+            var productoDTO = _mapper.Map<ProductDto>(createProduct);
+            return CreatedAtRoute("GetProduct", new {productId = product.ProductId}, productoDTO);
 
 
 

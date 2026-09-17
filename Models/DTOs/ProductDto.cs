@@ -19,5 +19,7 @@ public class ProductDto
     //relacion con Modelo CATEGORY
     public int CategoryId {get; set;}
 
+    public string CategoryName {get; set;}=string.Empty;
+
 
 }
