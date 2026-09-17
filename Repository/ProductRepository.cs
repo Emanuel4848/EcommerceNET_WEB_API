@@ -38,7 +38,7 @@ public class ProductRepository : IProductRepository
         return Save();
     }
 
-    public bool CreateProducto(Product product)
+    public bool CreateProduct(Product product)
     {
         //verificar si mandan el producto
         if(product == null)

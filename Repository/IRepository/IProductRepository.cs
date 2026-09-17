@@ -12,7 +12,7 @@ public interface IProductRepository
     bool BuyProduct(string name, int quantity);
     bool ProductExists(int id);
     bool ProductExists(string name);
-    bool CreateProducto(Product product);
+    bool CreateProduct(Product product);
     bool UpdateProduct(Product product);
     bool DeleteProduct(Product product);
 
