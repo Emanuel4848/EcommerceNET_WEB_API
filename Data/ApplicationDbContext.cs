@@ -11,4 +11,6 @@ public class ApplicationDbContext: DbContext //case base de EntityFrameWork
     public DbSet<Category> Categories {get; set;}
     public DbSet<Product> Products {get; set;}
 
+    public DbSet<User> Users {get; set;}
+
 }
