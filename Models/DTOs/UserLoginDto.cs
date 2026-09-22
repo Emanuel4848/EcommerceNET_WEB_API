@@ -6,7 +6,7 @@ namespace ApiEcommerce.Models.DTOs;
 public class UserLoginDto
 {
     [Required(ErrorMessage = "El campo name es requerido")]
-    public string? UserName {get; set;}
+    public string? Username {get; set;}
     
     [Required(ErrorMessage = "El campo password es requerido")]
     public string? Password { get; set; }

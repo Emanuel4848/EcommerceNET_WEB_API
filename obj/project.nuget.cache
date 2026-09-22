@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "eYQpv09jgzc=",
+  "dgSpecHash": "18K1Ck+NulU=",
   "success": true,
   "projectFilePath": "C:\\Users\\Pc\\Desktop\\Development\\Udemy\\Cursos Udemy\\.NET CORE, SQL Server y seguridad JWT\\Codigo\\Proyectos\\ASP_NET_CORE_WEB_API2\\ApiEcommerce\\ApiEcommerce.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Pc\\.nuget\\packages\\automapper\\14.0.0\\automapper.14.0.0.nupkg.sha512",
     "C:\\Users\\Pc\\.nuget\\packages\\azure.core\\1.50.0\\azure.core.1.50.0.nupkg.sha512",
     "C:\\Users\\Pc\\.nuget\\packages\\azure.identity\\1.17.1\\azure.identity.1.17.1.nupkg.sha512",
+    "C:\\Users\\Pc\\.nuget\\packages\\bcrypt.net-next\\4.2.0\\bcrypt.net-next.4.2.0.nupkg.sha512",
     "C:\\Users\\Pc\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Pc\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.10\\microsoft.aspnetcore.openapi.10.0.10.nupkg.sha512",
     "C:\\Users\\Pc\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\8.0.0\\microsoft.bcl.asyncinterfaces.8.0.0.nupkg.sha512",
@@ -65,7 +66,7 @@
     {
       "code": "NU1903",
       "level": "Warning",
-      "message": "Package 'AutoMapper' 14.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-rvv3-g6hj-g44x",
+      "message": "El paquete \"AutoMapper\" 14.0.0 tiene una vulnerabilidad de gravedad alta conocida, https://github.com/advisories/GHSA-rvv3-g6hj-g44x",
       "projectPath": "C:\\Users\\Pc\\Desktop\\Development\\Udemy\\Cursos Udemy\\.NET CORE, SQL Server y seguridad JWT\\Codigo\\Proyectos\\ASP_NET_CORE_WEB_API2\\ApiEcommerce\\ApiEcommerce.csproj",
       "warningLevel": 1,
       "filePath": "C:\\Users\\Pc\\Desktop\\Development\\Udemy\\Cursos Udemy\\.NET CORE, SQL Server y seguridad JWT\\Codigo\\Proyectos\\ASP_NET_CORE_WEB_API2\\ApiEcommerce\\ApiEcommerce.csproj",
