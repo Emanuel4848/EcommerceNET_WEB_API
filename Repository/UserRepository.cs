@@ -94,7 +94,7 @@ public class UserRepository : IUserRepository
         var key = Encoding.UTF8.GetBytes(secretKey);
 
 
-        //datos para contrusir el token
+        //datos para contrusir el token   - HEADER(algoritmo), PAYLOAD(datos), SIGNATURE(firma).
         var tokenDescriptor = new SecurityTokenDescriptor
         {
             Subject = new ClaimsIdentity(new[]
