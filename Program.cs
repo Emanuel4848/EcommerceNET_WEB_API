@@ -20,7 +20,17 @@ builder.Services.AddAutoMapper(typeof(Program).Assembly);
 builder.Services.AddControllers();
 
 builder.Services.AddOpenApi();
-builder.Services.AddSwaggerGen();     
+builder.Services.AddSwaggerGen();
+
+//cors
+builder.Services.AddCors(options =>
+  {
+    options.AddPolicy("AllowSpecificOrigin", 
+    builder =>
+    {
+        builder.WithOrigins("http//localhost:3000").AllowAnyMethod().AllowAnyHeader();
+    });
+  });
 
 var app = builder.Build();
 
@@ -37,6 +47,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("AllowSpecificOrigin");
 
 app.UseAuthorization();
 
