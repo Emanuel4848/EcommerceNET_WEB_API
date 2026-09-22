@@ -2,6 +2,7 @@ using ApiEcommerce.Models;
 using ApiEcommerce.Models.DTOs;
 using ApiEcommerce.Repository.IRepository;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
@@ -10,6 +11,7 @@ namespace ApiEcommerce.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = "admin")]
     public class ProductsController : ControllerBase
     {
         //inyecciónes
@@ -27,6 +29,7 @@ namespace ApiEcommerce.Controllers
         }
 
         //Listar productos------------------------------------
+        [AllowAnonymous]
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status403Forbidden)] //<-- Usuario no autorizado a acceder a este recurso
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -39,6 +42,7 @@ namespace ApiEcommerce.Controllers
 
 
         //Listar un producto por id ------------------------------------------------------
+        [AllowAnonymous]
         [HttpGet("{productId:int}", Name = "GetProduct")]
         [ProducesResponseType(StatusCodes.Status403Forbidden)] 
         [ProducesResponseType(StatusCodes.Status400BadRequest)] 
@@ -107,6 +111,7 @@ namespace ApiEcommerce.Controllers
         }
 
         //Obtener productos por categoria------------------------------------------------------------------------
+        [AllowAnonymous]
         [HttpGet("searchProductByCategory/{categoryId:int}", Name = "GetProductForCategory")]
         [ProducesResponseType(StatusCodes.Status403Forbidden)] 
         [ProducesResponseType(StatusCodes.Status400BadRequest)] 
@@ -124,6 +129,7 @@ namespace ApiEcommerce.Controllers
         }
 
         //Buscar productos por nombre o descripción
+        [AllowAnonymous]
         [HttpGet("searchProductByNameDescription/{searchTerm}", Name = "SearchProducts")]
         [ProducesResponseType(StatusCodes.Status403Forbidden)] 
         [ProducesResponseType(StatusCodes.Status400BadRequest)] 

@@ -2,6 +2,7 @@ using ApiEcommerce.Constants;
 using ApiEcommerce.Models.DTOs;
 using ApiEcommerce.Repository.IRepository;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -11,6 +12,7 @@ namespace ApiEcommerce.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = "admin")]
     //[EnableCors(PolicyNames.AllowSpecificOrigin)]
     public class CategoriesController : ControllerBase
     {
@@ -29,6 +31,7 @@ namespace ApiEcommerce.Controllers
 
 
         //----Endpoints----
+        [AllowAnonymous]
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status403Forbidden)] //<-- Usuario no autorizado a acceder a este recurso
         [ProducesResponseType(StatusCodes.Status200OK)] //<-- Si puede acceder a la lista
@@ -47,6 +50,7 @@ namespace ApiEcommerce.Controllers
 
 
         //Get Category by Id
+        [AllowAnonymous]
         [HttpGet("{id:int}", Name ="GetCategory")]
         [ProducesResponseType(StatusCodes.Status403Forbidden)] 
         [ProducesResponseType(StatusCodes.Status400BadRequest)] 
