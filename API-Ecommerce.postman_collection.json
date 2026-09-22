@@ -1,0 +1,550 @@
+{
+  "info": {
+    "_postman_id": "06af47bc-a3e6-49c7-b3db-5d7ebec1695f",
+    "name": "API-Ecommerce",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "43303271"
+  },
+  "item": [
+    {
+      "name": "Categorías",
+      "item": [
+        {
+          "name": "Listar categorías",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJ1c2VybmFtZSI6ImVtYSIsInJvbGUiOiJhZG1pbiIsIm5iZiI6MTc5MDExNzc3MywiZXhwIjoxNzkwMTI0OTczLCJpYXQiOjE3OTAxMTc3NzN9.yJf5QfNNmbDmfVWBdvaRD_ErG6iFZNoXXxok5AABNPo",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5163/api/Categories",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5163",
+              "path": [
+                "api",
+                "Categories"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Obtener una categoría",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5163/api/Categories/2",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5163",
+              "path": [
+                "api",
+                "Categories",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Crear una Categoría",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJ1c2VybmFtZSI6ImVtYSIsInJvbGUiOiJhZG1pbiIsIm5iZiI6MTc5MDExNzc3MywiZXhwIjoxNzkwMTI0OTczLCJpYXQiOjE3OTAxMTc3NzN9.yJf5QfNNmbDmfVWBdvaRD_ErG6iFZNoXXxok5AABNPo",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Tecnología\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5163/api/Categories",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5163",
+              "path": [
+                "api",
+                "Categories"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Actualizar una categoría",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"string\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5163/api/Categories/2",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5163",
+              "path": [
+                "api",
+                "Categories",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Borrar una categoría",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5163/api/Categories/2",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5163",
+              "path": [
+                "api",
+                "Categories",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Usuarios",
+      "item": [
+        {
+          "name": "Listar usuarios",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJ1c2VybmFtZSI6ImVtYSIsInJvbGUiOiJhZG1pbiIsIm5iZiI6MTc5MDExNzc3MywiZXhwIjoxNzkwMTI0OTczLCJpYXQiOjE3OTAxMTc3NzN9.yJf5QfNNmbDmfVWBdvaRD_ErG6iFZNoXXxok5AABNPo",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5163/api/Users",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5163",
+              "path": [
+                "api",
+                "Users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Obtener un usuario",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJ1c2VybmFtZSI6ImVtYSIsInJvbGUiOiJhZG1pbiIsIm5iZiI6MTc5MDExNzc3MywiZXhwIjoxNzkwMTI0OTczLCJpYXQiOjE3OTAxMTc3NzN9.yJf5QfNNmbDmfVWBdvaRD_ErG6iFZNoXXxok5AABNPo",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5163/api/Users/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5163",
+              "path": [
+                "api",
+                "Users",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Crear un usuario",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Ema\",\r\n  \"userName\": \"ema\",\r\n  \"password\": \"123456\",\r\n  \"role\": \"admin\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5163/api/Users",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5163",
+              "path": [
+                "api",
+                "Users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"userName\": \"ema\",\r\n  \"password\": \"123456\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5163/api/Users/Login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5163",
+              "path": [
+                "api",
+                "Users",
+                "Login"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Productos",
+      "item": [
+        {
+          "name": "Listar productos",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:5163/api/Products",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5163",
+              "path": [
+                "api",
+                "Products"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Obtener un producto por id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5163/api/Products/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5163",
+              "path": [
+                "api",
+                "Products",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Listar productos por categoría",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5163/api/Products/searchProductByCategory/2",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5163",
+              "path": [
+                "api",
+                "Products",
+                "searchProductByCategory",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar un producto por Nombre o descripción",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5163/api/Products/searchProductByNameDescription/camisa",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5163",
+              "path": [
+                "api",
+                "Products",
+                "searchProductByNameDescription",
+                "camisa"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Crear un producto",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"string\",\r\n  \"description\": \"string\",\r\n  \"price\": 0,\r\n  \"imgUrl\": \"string\",\r\n  \"sku\": \"string\",\r\n  \"stock\": 0,\r\n  \"updateDate\": \"2026-09-22T22:50:34.672Z\",\r\n  \"categoryId\": 0\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5163/api/Products",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5163",
+              "path": [
+                "api",
+                "Products"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Actualizar un producto",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"string\",\r\n  \"description\": \"string\",\r\n  \"price\": 0,\r\n  \"imgUrl\": \"string\",\r\n  \"sku\": \"string\",\r\n  \"stock\": 0,\r\n  \"updateDate\": \"2026-09-22T22:51:32.990Z\",\r\n  \"categoryId\": 0\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5163/api/Products/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5163",
+              "path": [
+                "api",
+                "Products",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Comprar un producto",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5163/api/Products/buyProduct/camisa/2",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5163",
+              "path": [
+                "api",
+                "Products",
+                "buyProduct",
+                "camisa",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Borrar un producto",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5163/api/Products/2",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5163",
+              "path": [
+                "api",
+                "Products",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
