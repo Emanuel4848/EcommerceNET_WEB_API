@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -51,7 +52,25 @@ builder.Services.AddAuthentication(options =>
 
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options =>
+  {
+    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+      Description = "Nuestra API utiliza la Autenticación JWT usando el esquema Bearer. \n\r\n\r" +
+                    "Ingresa la palabra a continuación el token generado en login.\n\r\n\r" +
+                    "Ejemplo: \"12345abcdef\"",
+      Name = "Authorization",
+      In = ParameterLocation.Header,
+      Type = SecuritySchemeType.Http,
+      Scheme = "Bearer"
+    });
+    options.AddSecurityRequirement(document => new OpenApiSecurityRequirement
+{
+    [new OpenApiSecuritySchemeReference("Bearer", document)] = []
+});
+  }
+  
+);
 
 //cors
 builder.Services.AddCors(options =>
