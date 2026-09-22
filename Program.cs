@@ -1,3 +1,4 @@
+using ApiEcommerce.Constants;
 using ApiEcommerce.Models;
 using ApiEcommerce.Repository;
 using ApiEcommerce.Repository.IRepository;
@@ -25,7 +26,7 @@ builder.Services.AddSwaggerGen();
 //cors
 builder.Services.AddCors(options =>
   {
-    options.AddPolicy("AllowSpecificOrigin", 
+    options.AddPolicy(PolicyNames.AllowSpecificOrigin, 
     builder =>
     {
         builder.WithOrigins("http//localhost:3000").AllowAnyMethod().AllowAnyHeader();
@@ -48,7 +49,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseCors("AllowSpecificOrigin");
+app.UseCors(PolicyNames.AllowSpecificOrigin);
 
 app.UseAuthorization();
 
