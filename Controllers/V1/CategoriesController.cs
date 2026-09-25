@@ -1,6 +1,7 @@
 using ApiEcommerce.Constants;
 using ApiEcommerce.Models.DTOs;
 using ApiEcommerce.Repository.IRepository;
+using Asp.Versioning;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
@@ -8,9 +9,11 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
-namespace ApiEcommerce.Controllers
+namespace ApiEcommerce.Controllers.v1
 {
-    [Route("api/[controller]")]
+    
+    [Route("api/v{version:apiVersion}/[controller]")]
+    [ApiVersion("1.0")]
     [ApiController]
     [Authorize(Roles = "admin")]
     //[EnableCors(PolicyNames.AllowSpecificOrigin)]
@@ -35,6 +38,7 @@ namespace ApiEcommerce.Controllers
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status403Forbidden)] //<-- Usuario no autorizado a acceder a este recurso
         [ProducesResponseType(StatusCodes.Status200OK)] //<-- Si puede acceder a la lista
+        [Obsolete("Este meotodo está obsoleto. Usa la versión 2 de Get CategoriesById")]
         //[EnableCors(PolicyNames.AllowSpecificOrigin)]
         public IActionResult GetCategories()
         {

@@ -1,6 +1,7 @@
 using ApiEcommerce.Models;
 using ApiEcommerce.Models.DTOs;
 using ApiEcommerce.Repository.IRepository;
+using Asp.Versioning;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -9,9 +10,10 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace ApiEcommerce.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
     [Authorize(Roles = "admin")]
+    [ApiVersionNeutral]
     public class ProductsController : ControllerBase
     {
         //inyecciónes

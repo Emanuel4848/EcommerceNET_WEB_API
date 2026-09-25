@@ -1,9 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "0I2NmrprBJU=",
+  "dgSpecHash": "kc/explTZBU=",
   "success": true,
   "projectFilePath": "C:\\Users\\Pc\\Desktop\\Development\\Udemy\\Cursos Udemy\\.NET CORE, SQL Server y seguridad JWT\\Codigo\\Proyectos\\ASP_NET_CORE_WEB_API2\\ApiEcommerce\\ApiEcommerce.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Pc\\.nuget\\packages\\asp.versioning.abstractions\\10.2.1\\asp.versioning.abstractions.10.2.1.nupkg.sha512",
+    "C:\\Users\\Pc\\.nuget\\packages\\asp.versioning.http\\10.2.1\\asp.versioning.http.10.2.1.nupkg.sha512",
+    "C:\\Users\\Pc\\.nuget\\packages\\asp.versioning.mvc\\10.2.1\\asp.versioning.mvc.10.2.1.nupkg.sha512",
+    "C:\\Users\\Pc\\.nuget\\packages\\asp.versioning.mvc.apiexplorer\\10.2.1\\asp.versioning.mvc.apiexplorer.10.2.1.nupkg.sha512",
     "C:\\Users\\Pc\\.nuget\\packages\\automapper\\14.0.0\\automapper.14.0.0.nupkg.sha512",
     "C:\\Users\\Pc\\.nuget\\packages\\azure.core\\1.50.0\\azure.core.1.50.0.nupkg.sha512",
     "C:\\Users\\Pc\\.nuget\\packages\\azure.identity\\1.17.1\\azure.identity.1.17.1.nupkg.sha512",

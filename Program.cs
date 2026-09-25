@@ -3,6 +3,7 @@ using ApiEcommerce.Constants;
 using ApiEcommerce.Models;
 using ApiEcommerce.Repository;
 using ApiEcommerce.Repository.IRepository;
+using Asp.Versioning;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -72,6 +73,8 @@ builder.Services.AddControllers(option =>
 
 
 builder.Services.AddOpenApi();
+
+//Documentación de la Api en swagger
 builder.Services.AddSwaggerGen(options =>
   {
     options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
@@ -88,9 +91,64 @@ builder.Services.AddSwaggerGen(options =>
     {
       [new OpenApiSecuritySchemeReference("Bearer", document)] = []
     });
+    options.SwaggerDoc("v1", new OpenApiInfo
+    {
+      Version = "v1",
+      Title = "API Ecommerce",
+      Description = "API para gestionar productos y usuarios",
+      TermsOfService = new Uri("http://example.com/terms"),
+      Contact = new OpenApiContact
+      {
+        Name = "DevTalles",
+        Url = new Uri("https://devtalles.com")
+      },
+      License = new OpenApiLicense
+      {
+        Name = "Licencia de uso",
+        Url = new Uri("https://example.com/license")
+      }
+
+    });
+    options.SwaggerDoc("v2", new OpenApiInfo
+    {
+      Version = "v2",
+      Title = "API Ecommerce V2",
+      Description = "API para gestionar productos y usuarios",
+      TermsOfService = new Uri("http://example.com/terms"),
+      Contact = new OpenApiContact
+      {
+        Name = "DevTalles",
+        Url = new Uri("https://devtalles.com")
+      },
+      License = new OpenApiLicense
+      {
+        Name = "Licencia de uso",
+        Url = new Uri("https://example.com/license")
+      }
+
+    });
+    
+    ;
   }
 
 );
+
+
+var apiVersioningBuilder = builder.Services.AddApiVersioning(option =>
+{
+  option.AssumeDefaultVersionWhenUnspecified = true;   //versio por defecto
+  option.DefaultApiVersion = new ApiVersion(1,0);      //decfecto = ApiVersion(grupo, versionMinima)
+  option.ReportApiVersions = true;   //reportar versiones para clientes o dbgin
+  //option.ApiVersionReader = ApiVersionReader.Combine(new QueryStringApiVersionReader("api-version"));  //parametro en la url de la version de la api   ?api-version
+});
+
+//para que swagger muestre las versiones
+apiVersioningBuilder.AddApiExplorer(option =>
+{
+  option.GroupNameFormat= "'v'VVV"; //formato de la api = v1, v2, v3...
+  option.SubstituteApiVersionInUrl = true;   //  api/v{version}/products
+});
+
 
 //cors
 builder.Services.AddCors(options =>
@@ -112,7 +170,11 @@ if (app.Environment.IsDevelopment())
 {
   app.MapOpenApi();
   app.UseSwagger();
-  app.UseSwaggerUI();
+  app.UseSwaggerUI(options =>
+  {
+    options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+    options.SwaggerEndpoint("/swagger/v2/swagger.json", "v2");
+  });
 
 }
 //middlewrs
