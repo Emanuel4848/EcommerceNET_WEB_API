@@ -6,6 +6,8 @@ using System.Text;
 using ApiEcommerce.Models;
 using ApiEcommerce.Models.DTOs;
 using ApiEcommerce.Repository.IRepository;
+using AutoMapper;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.VisualBasic;
@@ -18,25 +20,28 @@ public class UserRepository : IUserRepository
     private readonly ApplicationDbContext _db;
 
     private string? secretKey;
+    private readonly UserManager<ApplicationUser> _userManager;
+    private readonly RoleManager<IdentityRole> _rolManager;
+    private readonly IMapper _mapper;
 
-    public UserRepository(ApplicationDbContext db, IConfiguration configuration)
+    public UserRepository(ApplicationDbContext db, IConfiguration configuration, 
+    UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IMapper mapper)
     {
         _db = db;
         secretKey = configuration.GetValue<string>("ApiSettings:SecretKey");
+        _userManager = userManager;
+        _rolManager = roleManager;
+        _mapper = mapper;
     }
 
-    public User? GetUser(int id)
+    public ApplicationUser? GetUser(string id)
     {
-        if (id <= 0)
-        {
-            return null;
-        }
-        return _db.Users.FirstOrDefault(u => u.Id == id);
+        return _db.ApplicationUsers.FirstOrDefault(u => u.Id == id);
     }
 
-    public ICollection<User> GetUsers()
+    public ICollection<ApplicationUser> GetUsers()
     {
-        return _db.Users.OrderBy(u => u.UserName).ToList();
+        return _db.ApplicationUsers.OrderBy(u => u.UserName).ToList();
     }
 
     public bool IsUniqueUser(string username)
@@ -59,7 +64,7 @@ public class UserRepository : IUserRepository
         }
 
         //verificar username si existe o no
-        var user = await _db.Users.FirstOrDefaultAsync<User>(u => u.UserName.ToLower().Trim() == userLoginDto.Username.ToLower().Trim());
+        var user = await _db.ApplicationUsers.FirstOrDefaultAsync<ApplicationUser>(u => u.UserName != null && u.UserName.ToLower().Trim() == userLoginDto.Username.ToLower().Trim());
         if (user == null)
         {
             return new UserLoginResponseDto()
@@ -70,8 +75,20 @@ public class UserRepository : IUserRepository
             };
         }
 
+        if (userLoginDto.Password == null)
+        {
+            return new UserLoginResponseDto()
+            {
+                Token = "",
+                User = null,
+                Message = "Password requerido"
+            };
+        }
+
+        bool isValid = await _userManager.CheckPasswordAsync(user, userLoginDto.Password);
+
         //si encontro, verificar pass
-        if (!BCrypt.Net.BCrypt.Verify(userLoginDto.Password, user.Password))
+        if (!isValid)
         {
             return new UserLoginResponseDto()
             {
@@ -90,6 +107,8 @@ public class UserRepository : IUserRepository
             throw new InvalidOperationException("SecretKey no esta configurada");
         }
 
+
+        var roles = await _userManager.GetRolesAsync(user);
         //Secretkey a arreglo de bytes.
         var key = Encoding.UTF8.GetBytes(secretKey);
 
@@ -100,8 +119,8 @@ public class UserRepository : IUserRepository
             Subject = new ClaimsIdentity(new[]
             {
                 new Claim("id", user.Id.ToString()),
-                new Claim("username", user.UserName.ToString()),
-                new Claim(ClaimTypes.Role, user.Role ?? string.Empty),
+                new Claim("username", user.UserName ?? string.Empty),
+                new Claim(ClaimTypes.Role, roles.FirstOrDefault() ?? string.Empty),
 
             }
             ),
@@ -118,37 +137,63 @@ public class UserRepository : IUserRepository
         return new UserLoginResponseDto()
         {
             Token = handlerToken.WriteToken(token),
-            User = new UserRegisterDto()
-            {
-                Username = user.UserName,
-                Name = user.Name,
-                Role = user.Role,
-                Password = user.Password ?? "",
-
-            },
+            User = _mapper.Map<UserDataDto>(user),
             Message = "Usuario Logueado correctamente"
         };
 
 
     }
 
-    public async Task<User> Register(CreateUserDto createUserDto)
+    public async Task<UserDataDto> Register(CreateUserDto createUserDto)
     {
-
-        var encriptedPass = BCrypt.Net.BCrypt.HashPassword(createUserDto.Password);
-
-        var user = new User()
+         if (string.IsNullOrEmpty(createUserDto.UserName))
         {
-            UserName = createUserDto.UserName ?? "No Username",
-            Name = createUserDto.Name,
-            Role = createUserDto.Role,
-            Password = encriptedPass
+            throw new ArgumentNullException("El Username es requerido");
+        }
+        if (createUserDto.Password == null)
+        {
+            throw new ArgumentNullException("El password es requerido");
+        }
 
+        //Instancia de applicationUser
+        var user = new ApplicationUser()
+        {
+            UserName = createUserDto.UserName,
+            Email = createUserDto.UserName,
+            NormalizedEmail = createUserDto.UserName.ToUpper(),
+            Name = createUserDto.Name
         };
 
-        _db.Users.Add(user);
-        await _db.SaveChangesAsync();
-        return user;
+        //crear usuario
+        var result = await _userManager.CreateAsync(user, createUserDto.Password);
+        if(result.Succeeded)
+        {
+            //crear ROL
+            var userRole = createUserDto.Role ?? "User";
+
+            //rol existe?
+            var roleExists = await _rolManager.RoleExistsAsync(userRole);
+
+            //si no existe, crearlo
+            if(!roleExists)
+            {
+                var identityRole = new IdentityRole(userRole);
+                await _rolManager.CreateAsync(identityRole);
+            }
+
+            //asignar rol al usuario
+            await _userManager.AddToRoleAsync(user, userRole);
+
+            //devolver el usuario
+            var createdUser = _db.ApplicationUsers.FirstOrDefault(u => u.UserName == createUserDto.UserName);
+            return _mapper.Map<UserDataDto>(createdUser);
+            }
+
+
+            //si no se puede crear:
+            var errors = string.Join(",", result.Errors.Select(e => e.Description));
+            throw new ApplicationException($"No se pudo crear el registro: {errors}");
+        
 
     }
 
