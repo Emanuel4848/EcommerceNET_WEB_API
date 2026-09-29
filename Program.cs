@@ -184,6 +184,7 @@ if (app.Environment.IsDevelopment())
 
 }
 //middlewrs
+app.UseStaticFiles();
 app.UseHttpsRedirection();
 
 app.UseCors(PolicyNames.AllowSpecificOrigin);
