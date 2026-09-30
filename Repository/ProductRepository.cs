@@ -95,6 +95,19 @@ public class ProductRepository : IProductRepository
         return _db.Products.Include(p => p.Category).OrderBy(p => p.Name).ToList();
     }
 
+    //Pagina y cuanta cantidad de productos quiero ver
+    public ICollection<Product> GetProductsInPage(int pageNumber, int pageSize)
+    {
+        return _db.Products.OrderBy(p => p.ProductId)
+        .Skip((pageNumber -1)*pageSize).Take(pageSize).ToList();
+    }
+
+    //total de productos
+    public int GetTotalProducts()
+    {
+        return _db.Products.Count();
+    }
+
     public bool ProductExists(int id)
     {
         if (id <= 0)

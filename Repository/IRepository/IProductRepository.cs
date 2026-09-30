@@ -16,6 +16,11 @@ public interface IProductRepository
     bool UpdateProduct(Product product);
     bool DeleteProduct(Product product);
 
+    //metodos de paginación
+    ICollection<Product> GetProductsInPage(int pageNumber, int pageSize);
+    int GetTotalProducts();
+
+    
     bool Save();
 
 
