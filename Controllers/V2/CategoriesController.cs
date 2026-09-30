@@ -2,7 +2,7 @@ using ApiEcommerce.Constants;
 using ApiEcommerce.Models.DTOs;
 using ApiEcommerce.Repository.IRepository;
 using Asp.Versioning;
-using AutoMapper;
+using Mapster;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
@@ -22,14 +22,10 @@ namespace ApiEcommerce.Controllers.V2
         
         //propiedades como Interfaces que se inyectarán
         private readonly ICategoryRepository _categoryRepository;
-        private readonly IMapper _mapper;
-
-
         //Inyección
-        public CategoriesController(ICategoryRepository categoryRepository, IMapper mapper)
+        public CategoriesController(ICategoryRepository categoryRepository)
         {
             _categoryRepository = categoryRepository;
-            _mapper = mapper;
         }
 
 
@@ -45,7 +41,7 @@ namespace ApiEcommerce.Controllers.V2
             var categoriesDto = new List<CategoryDto>();          
             foreach (var category in categories)
             {
-                categoriesDto.Add(_mapper.Map<CategoryDto>(category)); 
+                categoriesDto.Add(category.Adapt<CategoryDto>()); 
             }
 
             return Ok(categoriesDto); 
@@ -70,7 +66,7 @@ namespace ApiEcommerce.Controllers.V2
             {
                 return NotFound($"La categoria con el id {id} no existe");
             }
-            var categoryDto = _mapper.Map<CategoryDto>(category);
+            var categoryDto = category.Adapt<CategoryDto>();
             return Ok(categoryDto);
 
         }
@@ -100,7 +96,7 @@ namespace ApiEcommerce.Controllers.V2
             }
 
             //CONVERTIR EndidadDto a EntidadCategory
-            var category = _mapper.Map<Category>(createCategoryDto); //<Destino> (Origen)
+            var category = createCategoryDto.Adapt<Category>(); //<Destino> (Origen)
 
             //guardarlo en la base de datos
             if (!_categoryRepository.CreateCategory(category))   
@@ -145,7 +141,7 @@ namespace ApiEcommerce.Controllers.V2
             }
 
             //Mapear
-            var category = _mapper.Map<Category>(updateCategoryDto);
+            var category = updateCategoryDto.Adapt<Category>();
             category.IdCategory = id;
 
             if(!_categoryRepository.UpdateCategory(category))

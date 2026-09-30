@@ -5,6 +5,7 @@ using ApiEcommerce.Models;
 using ApiEcommerce.Repository;
 using ApiEcommerce.Repository.IRepository;
 using Asp.Versioning;
+using Mapster;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -38,12 +39,14 @@ builder.Services.AddResponseCaching(options =>
   options.UseCaseSensitivePaths = true;
 });
 
-//automapper
+//repositorios
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>(); //instancia de Product Repository para las solicitudes http
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 
-builder.Services.AddAutoMapper(typeof(Program).Assembly);
+//mapster
+var mapsterConfig = TypeAdapterConfig.GlobalSettings;
+mapsterConfig.Scan(typeof(Program).Assembly);
 
 //servicio identity
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
