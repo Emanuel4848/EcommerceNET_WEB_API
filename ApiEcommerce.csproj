@@ -30,6 +30,7 @@
     <Folder Include="Constants\" />
     <Folder Include="Controllers\" />
     <Folder Include="Mapping\" />
+    <Folder Include="Models\DTOs\Responses\" />
   </ItemGroup>
 
 </Project>
