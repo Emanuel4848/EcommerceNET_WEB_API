@@ -17,7 +17,7 @@
               "bearer": [
                 {
                   "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJ1c2VybmFtZSI6ImVtYSIsInJvbGUiOiJhZG1pbiIsIm5iZiI6MTc5MDExNzc3MywiZXhwIjoxNzkwMTI0OTczLCJpYXQiOjE3OTAxMTc3NzN9.yJf5QfNNmbDmfVWBdvaRD_ErG6iFZNoXXxok5AABNPo",
+                  "value": "{{token}}",
                   "type": "string"
                 }
               ]
@@ -25,14 +25,17 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://localhost:5163/api/Categories",
-              "protocol": "http",
+              "raw": "https://ecommerce-api-bzhxamaredawf4d4.mexicocentral-01.azurewebsites.net/api/v1/Categories",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "ecommerce-api-bzhxamaredawf4d4",
+                "mexicocentral-01",
+                "azurewebsites",
+                "net"
               ],
-              "port": "5163",
               "path": [
                 "api",
+                "v1",
                 "Categories"
               ]
             }
@@ -45,16 +48,19 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://localhost:5163/api/Categories/2",
-              "protocol": "http",
+              "raw": "https://ecommerce-api-bzhxamaredawf4d4.mexicocentral-01.azurewebsites.net/api/v1/Categories/1",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "ecommerce-api-bzhxamaredawf4d4",
+                "mexicocentral-01",
+                "azurewebsites",
+                "net"
               ],
-              "port": "5163",
               "path": [
                 "api",
+                "v1",
                 "Categories",
-                "2"
+                "1"
               ]
             }
           },
@@ -81,7 +87,7 @@
               "bearer": [
                 {
                   "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJ1c2VybmFtZSI6ImVtYSIsInJvbGUiOiJhZG1pbiIsIm5iZiI6MTc5MDExNzc3MywiZXhwIjoxNzkwMTI0OTczLCJpYXQiOjE3OTAxMTc3NzN9.yJf5QfNNmbDmfVWBdvaRD_ErG6iFZNoXXxok5AABNPo",
+                  "value": "",
                   "type": "string"
                 }
               ]
@@ -98,14 +104,17 @@
               }
             },
             "url": {
-              "raw": "http://localhost:5163/api/Categories",
-              "protocol": "http",
+              "raw": "https://ecommerce-api-bzhxamaredawf4d4.mexicocentral-01.azurewebsites.net/api/v1/Categories",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "ecommerce-api-bzhxamaredawf4d4",
+                "mexicocentral-01",
+                "azurewebsites",
+                "net"
               ],
-              "port": "5163",
               "path": [
                 "api",
+                "v1",
                 "Categories"
               ]
             }
@@ -140,16 +149,19 @@
               }
             },
             "url": {
-              "raw": "http://localhost:5163/api/Categories/2",
-              "protocol": "http",
+              "raw": "https://ecommerce-api-bzhxamaredawf4d4.mexicocentral-01.azurewebsites.net/api/v1/Categories/1",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "ecommerce-api-bzhxamaredawf4d4",
+                "mexicocentral-01",
+                "azurewebsites",
+                "net"
               ],
-              "port": "5163",
               "path": [
                 "api",
+                "v1",
                 "Categories",
-                "2"
+                "1"
               ]
             }
           },
@@ -183,16 +195,19 @@
               }
             },
             "url": {
-              "raw": "http://localhost:5163/api/Categories/2",
-              "protocol": "http",
+              "raw": "https://ecommerce-api-bzhxamaredawf4d4.mexicocentral-01.azurewebsites.net/api/v1/Categories/1",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "ecommerce-api-bzhxamaredawf4d4",
+                "mexicocentral-01",
+                "azurewebsites",
+                "net"
               ],
-              "port": "5163",
               "path": [
                 "api",
+                "v1",
                 "Categories",
-                "2"
+                "1"
               ]
             }
           },
@@ -211,7 +226,7 @@
               "bearer": [
                 {
                   "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJ1c2VybmFtZSI6ImVtYSIsInJvbGUiOiJhZG1pbiIsIm5iZiI6MTc5MDExNzc3MywiZXhwIjoxNzkwMTI0OTczLCJpYXQiOjE3OTAxMTc3NzN9.yJf5QfNNmbDmfVWBdvaRD_ErG6iFZNoXXxok5AABNPo",
+                  "value": "",
                   "type": "string"
                 }
               ]
@@ -226,14 +241,17 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:5163/api/Users",
-              "protocol": "http",
+              "raw": "https://ecommerce-api-bzhxamaredawf4d4.mexicocentral-01.azurewebsites.net/api/v1/Users",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "ecommerce-api-bzhxamaredawf4d4",
+                "mexicocentral-01",
+                "azurewebsites",
+                "net"
               ],
-              "port": "5163",
               "path": [
                 "api",
+                "v1",
                 "Users"
               ]
             }
@@ -247,21 +265,24 @@
             "header": [
               {
                 "key": "Authorization",
-                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJ1c2VybmFtZSI6ImVtYSIsInJvbGUiOiJhZG1pbiIsIm5iZiI6MTc5MDExNzc3MywiZXhwIjoxNzkwMTI0OTczLCJpYXQiOjE3OTAxMTc3NzN9.yJf5QfNNmbDmfVWBdvaRD_ErG6iFZNoXXxok5AABNPo",
+                "value": "Bearer {{token}}",
                 "type": "text"
               }
             ],
             "url": {
-              "raw": "http://localhost:5163/api/Users/1",
-              "protocol": "http",
+              "raw": "https://ecommerce-api-bzhxamaredawf4d4.mexicocentral-01.azurewebsites.net/api/v1/Users/1544e4c2-b4e4-462b-8ec4-adfb981dfbcd",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "ecommerce-api-bzhxamaredawf4d4",
+                "mexicocentral-01",
+                "azurewebsites",
+                "net"
               ],
-              "port": "5163",
               "path": [
                 "api",
+                "v1",
                 "Users",
-                "1"
+                "1544e4c2-b4e4-462b-8ec4-adfb981dfbcd"
               ]
             }
           },
@@ -274,7 +295,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"name\": \"Ema\",\r\n  \"userName\": \"ema\",\r\n  \"password\": \"123456\",\r\n  \"role\": \"admin\"\r\n}",
+              "raw": "{\r\n  \"name\": \"\",\r\n  \"userName\": \"\",\r\n  \"password\": \"\",\r\n  \"role\": \"User\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -282,14 +303,17 @@
               }
             },
             "url": {
-              "raw": "http://localhost:5163/api/Users",
-              "protocol": "http",
+              "raw": "https://ecommerce-api-bzhxamaredawf4d4.mexicocentral-01.azurewebsites.net/api/v1/Users",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "ecommerce-api-bzhxamaredawf4d4",
+                "mexicocentral-01",
+                "azurewebsites",
+                "net"
               ],
-              "port": "5163",
               "path": [
                 "api",
+                "v1",
                 "Users"
               ]
             }
@@ -303,7 +327,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"userName\": \"ema\",\r\n  \"password\": \"123456\"\r\n}",
+              "raw": "{\r\n  \"userName\": \"\",\r\n  \"password\": \"\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -311,14 +335,17 @@
               }
             },
             "url": {
-              "raw": "http://localhost:5163/api/Users/Login",
-              "protocol": "http",
+              "raw": "https://ecommerce-api-bzhxamaredawf4d4.mexicocentral-01.azurewebsites.net/api/v1/Users/Login",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "ecommerce-api-bzhxamaredawf4d4",
+                "mexicocentral-01",
+                "azurewebsites",
+                "net"
               ],
-              "port": "5163",
               "path": [
                 "api",
+                "v1",
                 "Users",
                 "Login"
               ]
@@ -344,14 +371,17 @@
               "raw": ""
             },
             "url": {
-              "raw": "http://localhost:5163/api/Products",
-              "protocol": "http",
+              "raw": "https://ecommerce-api-bzhxamaredawf4d4.mexicocentral-01.azurewebsites.net/api/v1/Products",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "ecommerce-api-bzhxamaredawf4d4",
+                "mexicocentral-01",
+                "azurewebsites",
+                "net"
               ],
-              "port": "5163",
               "path": [
                 "api",
+                "v1",
                 "Products"
               ]
             }
@@ -364,14 +394,17 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://localhost:5163/api/Products/1",
-              "protocol": "http",
+              "raw": "https://ecommerce-api-bzhxamaredawf4d4.mexicocentral-01.azurewebsites.net/api/v1/Products/1",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "ecommerce-api-bzhxamaredawf4d4",
+                "mexicocentral-01",
+                "azurewebsites",
+                "net"
               ],
-              "port": "5163",
               "path": [
                 "api",
+                "v1",
                 "Products",
                 "1"
               ]
@@ -385,17 +418,54 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://localhost:5163/api/Products/searchProductByCategory/2",
-              "protocol": "http",
+              "raw": "https://ecommerce-api-bzhxamaredawf4d4.mexicocentral-01.azurewebsites.net/api/v1/Products/searchProductByCategory/2",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "ecommerce-api-bzhxamaredawf4d4",
+                "mexicocentral-01",
+                "azurewebsites",
+                "net"
               ],
-              "port": "5163",
               "path": [
                 "api",
+                "v1",
                 "Products",
                 "searchProductByCategory",
                 "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Listar productos paginados",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://ecommerce-api-bzhxamaredawf4d4.mexicocentral-01.azurewebsites.net/api/v1/Products/Paged?pageNumber=1&pageSize=5",
+              "protocol": "https",
+              "host": [
+                "ecommerce-api-bzhxamaredawf4d4",
+                "mexicocentral-01",
+                "azurewebsites",
+                "net"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "Products",
+                "Paged"
+              ],
+              "query": [
+                {
+                  "key": "pageNumber",
+                  "value": "1"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "5"
+                }
               ]
             }
           },
@@ -407,17 +477,20 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://localhost:5163/api/Products/searchProductByNameDescription/camisa",
-              "protocol": "http",
+              "raw": "https://ecommerce-api-bzhxamaredawf4d4.mexicocentral-01.azurewebsites.net/api/v1/Products/searchProductByNameDescription/Smartphone",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "ecommerce-api-bzhxamaredawf4d4",
+                "mexicocentral-01",
+                "azurewebsites",
+                "net"
               ],
-              "port": "5163",
               "path": [
                 "api",
+                "v1",
                 "Products",
                 "searchProductByNameDescription",
-                "camisa"
+                "Smartphone"
               ]
             }
           },
@@ -438,14 +511,17 @@
               }
             },
             "url": {
-              "raw": "http://localhost:5163/api/Products",
-              "protocol": "http",
+              "raw": "https://ecommerce-api-bzhxamaredawf4d4.mexicocentral-01.azurewebsites.net/api/v1/Products",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "ecommerce-api-bzhxamaredawf4d4",
+                "mexicocentral-01",
+                "azurewebsites",
+                "net"
               ],
-              "port": "5163",
               "path": [
                 "api",
+                "v1",
                 "Products"
               ]
             }
@@ -467,14 +543,17 @@
               }
             },
             "url": {
-              "raw": "http://localhost:5163/api/Products/1",
-              "protocol": "http",
+              "raw": "https://ecommerce-api-bzhxamaredawf4d4.mexicocentral-01.azurewebsites.net/api/v1/Products/1",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "ecommerce-api-bzhxamaredawf4d4",
+                "mexicocentral-01",
+                "azurewebsites",
+                "net"
               ],
-              "port": "5163",
               "path": [
                 "api",
+                "v1",
                 "Products",
                 "1"
               ]
@@ -497,14 +576,17 @@
               }
             },
             "url": {
-              "raw": "http://localhost:5163/api/Products/buyProduct/camisa/2",
-              "protocol": "http",
+              "raw": "https://ecommerce-api-bzhxamaredawf4d4.mexicocentral-01.azurewebsites.net/api/v1/Products/buyProduct/camisa/2",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "ecommerce-api-bzhxamaredawf4d4",
+                "mexicocentral-01",
+                "azurewebsites",
+                "net"
               ],
-              "port": "5163",
               "path": [
                 "api",
+                "v1",
                 "Products",
                 "buyProduct",
                 "camisa",
@@ -529,14 +611,17 @@
               }
             },
             "url": {
-              "raw": "http://localhost:5163/api/Products/2",
-              "protocol": "http",
+              "raw": "https://ecommerce-api-bzhxamaredawf4d4.mexicocentral-01.azurewebsites.net/api/v1/Products/2",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "ecommerce-api-bzhxamaredawf4d4",
+                "mexicocentral-01",
+                "azurewebsites",
+                "net"
               ],
-              "port": "5163",
               "path": [
                 "api",
+                "v1",
                 "Products",
                 "2"
               ]
