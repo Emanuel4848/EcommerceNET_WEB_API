@@ -320,6 +320,10 @@ http://localhost:5163/swagger
 
 Importa [API-Ecommerce.postman_collection.json](API-Ecommerce.postman_collection.json) en Postman. Primero registra o inicia sesión con un usuario autorizado y utiliza el JWT en las solicitudes protegidas.
 
+La colección agrupa las solicitudes por categorías, usuarios y productos:
+
+![Colección de Postman organizada por módulos](docs/images/postman-collection.png)
+
 Antes de publicar cambios en la colección, elimina tokens y contraseñas reales de los ejemplos exportados.
 
 ## Despliegue

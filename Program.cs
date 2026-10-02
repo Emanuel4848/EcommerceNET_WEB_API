@@ -211,4 +211,17 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+app.MapGet("/", () => Results.Ok(new
+{
+  application = "API E-Commerce",
+  status = "running",
+  version = "v1",
+  repository = "https://github.com/Emanuel4848/EcommerceNET_WEB_API",
+  publicEndpoints = new[]
+  {
+    "/api/v1/Categories",
+    "/api/v1/Products"
+  }
+}));
+
 app.Run();
