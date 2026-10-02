@@ -8,7 +8,11 @@ REST API for managing an e-commerce catalog. It handles categories, products, an
 
 **Public demos:** [List categories](https://ecommerce-api-bzhxamaredawf4d4.mexicocentral-01.azurewebsites.net/api/v1/Categories) | [List products](https://ecommerce-api-bzhxamaredawf4d4.mexicocentral-01.azurewebsites.net/api/v1/Products)
 
-**Postman collection:** [API-Ecommerce.postman_collection.json](API-Ecommerce.postman_collection.json)
+### Test collection
+
+![Postman collection organized by module](docs/images/postman-collection.png)
+
+[Download the Postman collection (.json)](API-Ecommerce.postman_collection.json)
 
 ### Create a test user
 
@@ -319,10 +323,6 @@ http://localhost:5163/swagger
 ## Postman
 
 Import [API-Ecommerce.postman_collection.json](API-Ecommerce.postman_collection.json) into Postman. Register or log in first, then use the returned JWT for protected requests.
-
-The collection groups requests by categories, users, and products:
-
-![Postman collection organized by module](docs/images/postman-collection.png)
 
 Remove real tokens and passwords from exported examples before committing collection changes.
 
