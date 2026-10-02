@@ -165,8 +165,9 @@ public class UserRepository : IUserRepository
         var result = await _userManager.CreateAsync(user, createUserDto.Password);
         if(result.Succeeded)
         {
-            //crear ROL
-            var userRole = createUserDto.Role ?? "User";
+            //crear ROL, modificación a producción para demostra, unicamente registro como User.
+            var userRole = "User";
+            //var userRole = createUserDto.Role ?? "User";
 
             //rol existe?
             var roleExists = await _rolManager.RoleExistsAsync(userRole);

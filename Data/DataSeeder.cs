@@ -6,7 +6,7 @@ namespace ApiEcommerce.Data;
 
 public class DataSeeder
 {
-    public static void SeedData(ApplicationDbContext appContext)
+    public static void SeedData(ApplicationDbContext appContext, IConfiguration configuration)
     {
         // Seeding de Roles
         if (!appContext.Roles.Any())
@@ -30,6 +30,12 @@ public class DataSeeder
         // Seeding de Usuario Administrador
         if (!appContext.ApplicationUsers.Any())
         {
+            var adminPassword = configuration["SeedAdmin:Password"];
+            if (string.IsNullOrWhiteSpace(adminPassword))
+            {
+                throw new InvalidOperationException("La contraseña del administrador seed no está configurada.");
+            }
+
             var hasher = new PasswordHasher<ApplicationUser>();
             var adminUser = new ApplicationUser
             {
@@ -41,7 +47,7 @@ public class DataSeeder
                 EmailConfirmed = true,
                 Name = "Administrador"
             };
-            adminUser.PasswordHash = hasher.HashPassword(adminUser, "Admin123!");
+            adminUser.PasswordHash = hasher.HashPassword(adminUser, adminPassword);
 
             var regularUser = new ApplicationUser
             {

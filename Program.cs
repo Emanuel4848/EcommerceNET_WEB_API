@@ -23,7 +23,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
   .UseSeeding((context, _) =>
   {
     var appContext = (ApplicationDbContext)context;
-    DataSeeder.SeedData(appContext);
+    DataSeeder.SeedData(appContext, builder.Configuration);
   })
 );
 
